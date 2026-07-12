@@ -1,3 +1,7 @@
+output "trusted_signing_accounts_id" {
+  description = "Map of id values across all trusted_signing_accounts, keyed the same as var.trusted_signing_accounts"
+  value       = { for k, v in azurerm_trusted_signing_account.trusted_signing_accounts : k => v.id }
+}
 output "trusted_signing_accounts_account_uri" {
   description = "Map of account_uri values across all trusted_signing_accounts, keyed the same as var.trusted_signing_accounts"
   value       = { for k, v in azurerm_trusted_signing_account.trusted_signing_accounts : k => v.account_uri }
